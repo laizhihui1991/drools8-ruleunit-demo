@@ -1,0 +1,14 @@
+package org.example;
+unit MeasurementUnit;
+
+rule "Collect colors"
+when
+    /measurements[ id == "color", $colorVal : val ]
+then
+    controlSet.add($colorVal);
+    System.out.println("匹配到颜色: " + $colorVal);
+end
+
+query FindColor
+    $m: /measurements[ id == "color" ]
+end
